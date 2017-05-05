@@ -1,0 +1,48 @@
+{
+  "name": "composer-confirm",
+  "description": "Conditionally run composer tasks based on responses to prompts.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/jonschlinkert/composer-confirm",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/composer-confirm",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/composer-confirm/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "enquirer": "^0.4.1",
+    "prompt-confirm": "^0.2.1"
+  },
+  "devDependencies": {
+    "composer": "^0.14.0",
+    "gulp-format-md": "^0.1.12",
+    "mocha": "^3.3.0"
+  },
+  "keywords": [
+    "composer",
+    "confirm"
+  ],
+  "verb": {
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "lint": {
+      "reflinks": true
+    }
+  }
+}
