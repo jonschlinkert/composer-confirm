@@ -40,4 +40,13 @@ describe('composer-confirm', function() {
 
     composer.build('default', cb);
   });
+
+  it('should work when a "no" callback is not given', function(cb) {
+    answer(enquirer, 'n\n');
+    confirm('default', 'Want to run this?', function(next) {
+      next(new Error('expected the first callback to be called'));
+    });
+
+    composer.build('default', cb);
+  });
 });
