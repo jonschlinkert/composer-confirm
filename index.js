@@ -1,22 +1,21 @@
 'use strict';
 
-var Enquirer = require('enquirer');
+var Prompt = require('prompt-confirm');
 
-module.exports = function(composer, enquirer) {
-  enquirer = enquirer || new Enquirer();
-  enquirer.register('confirm', require('prompt-confirm'));
-
+module.exports = function(composer, fn) {
   return function(name, message, yes, no) {
     var key = name + '-';
+    var prompt = new Prompt({name: key, message: message});
+    if (typeof fn === 'function') {
+      fn(prompt);
+    }
+
     composer.task(key + 'yes', yes);
-    composer.task(key + 'no', no);
+    composer.task(key + 'no', no || []);
     composer.task(name, function(cb) {
-      enquirer.question(key, {message: message, type: 'confirm'});
-      enquirer.ask(key)
-        .then(function(answers) {
-          composer.build(key + (answers[key] ? 'yes' : 'no'), cb);
-        })
-        .catch(cb);
+      prompt.ask(function(yes) {
+        composer.build(key + (yes ? 'yes' : 'no'), cb);
+      });
     });
   };
 };
