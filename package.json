@@ -1,7 +1,7 @@
 {
   "name": "composer-confirm",
   "description": "Uses [prompt-confirm] to conditionally run composer tasks based on responses to prompts. Can also be used with assemble, generate, verb and update (instead of composer).",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/jonschlinkert/composer-confirm",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/composer-confirm",
